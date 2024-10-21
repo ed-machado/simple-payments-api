@@ -1,6 +1,7 @@
 package com.machado.payments_api.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "tb_wallet_type")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter @Setter
 public class WalletType {
 
@@ -16,4 +18,18 @@ public class WalletType {
     private Long id;
 
     private String description;
+
+    @AllArgsConstructor
+    public enum Enum {
+
+        USER(1L, "user"),
+        MERCHANT(2L, "merchant");
+
+        private Long id;
+        private String description;
+
+        public WalletType get() {
+            return new WalletType(id, description);
+        }
+    }
 }
