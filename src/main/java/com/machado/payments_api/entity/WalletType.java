@@ -25,8 +25,8 @@ public class WalletType {
         USER(1L, "user"),
         MERCHANT(2L, "merchant");
 
-        private Long id;
-        private String description;
+        private final Long id;
+        private final String description;
 
         public WalletType get() {
             return new WalletType(id, description);

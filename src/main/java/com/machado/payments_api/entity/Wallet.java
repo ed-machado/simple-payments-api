@@ -34,4 +34,12 @@ public class Wallet {
     @ManyToOne
     @JoinColumn(name = "wallet_type_id")
     private WalletType walletType;
+
+    public Wallet(String fullName, String cpf, String email, String password, WalletType walletType) {
+        this.fullName = fullName;
+        this.cpf = cpf;
+        this.email = email;
+        this.password = password;
+        this.walletType = walletType;
+    }
 }
