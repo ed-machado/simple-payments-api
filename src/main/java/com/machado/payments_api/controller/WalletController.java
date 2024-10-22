@@ -3,6 +3,7 @@ package com.machado.payments_api.controller;
 import com.machado.payments_api.controller.dto.CreateWalletDto;
 import com.machado.payments_api.entity.Wallet;
 import com.machado.payments_api.service.WalletService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class WalletController {
     }
 
     @PostMapping("/wallets")
-    public ResponseEntity<Wallet> createWallet(@RequestBody CreateWalletDto createWalletDto) {
+    public ResponseEntity<Wallet> createWallet(@RequestBody @Valid CreateWalletDto createWalletDto) {
 
         var wallet = walletService.createWallet(createWalletDto);
         return ResponseEntity.ok(wallet);
